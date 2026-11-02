@@ -1,1 +1,235 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><title>Fly Browser</title><h1>Fly Browser</h1><p><a href="packages/">Official Linux downloads and installation</a></p></html>
+<!doctype html>
+<html lang="en" data-theme="chasis">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fly Browser · A keyboard-first browser for Linux</title>
+<meta name="description" content="Fly is a keyboard-first Linux browser built on Chromium: isolated workspaces, split view, link hints and paused background tabs, with no telemetry. Signed DEB, RPM and pacman packages.">
+<meta name="theme-color" content="#121211">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fly Browser">
+<meta property="og:description" content="A Linux browser built on Chromium, designed to be used from the keyboard.">
+<meta property="og:image" content="https://arzuparreta.github.io/fly-browser.github.io/assets/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/icon-256.png">
+<link rel="preload" href="assets/fonts/plex-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/doto.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  // Set the theme before the first paint: saved choice, then the system setting.
+  try {
+    var saved = localStorage.getItem('fly-theme');
+    var theme = saved || (matchMedia('(prefers-color-scheme: light)').matches ? 'papel' : 'chasis');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="assets/landing.css">
+<script src="assets/landing.js" defer></script>
+</head>
+<body>
+
+<header class="top wrap">
+  <a class="brand" href="./" aria-label="Fly Browser, home">
+    <img src="assets/img/favicon-32.png" width="20" height="20" alt="">
+    <span>Fly Browser</span>
+  </a>
+  <span class="top-rule" aria-hidden="true"></span>
+  <nav class="top-nav" aria-label="Main">
+    <a href="#install">Install</a>
+    <a href="https://github.com/Arzuparreta/fly-browser/blob/main/docs/guide/getting-started.md">Guide</a>
+    <a href="https://github.com/Arzuparreta/fly-browser">Source</a>
+    <button class="theme-toggle" type="button" aria-label="Switch to the light theme">
+      <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-title" class="wordmark"><span aria-hidden="true">FLY</span><span class="sr-only">Fly Browser</span></h1>
+        <p class="headline">A Linux browser built on Chromium, designed to be used from the keyboard.</p>
+        <div class="actions">
+          <a class="button" href="#install">Install for Linux</a>
+          <a class="text-link" href="https://github.com/Arzuparreta/fly-browser/blob/main/docs/guide/getting-started.md">Read the guide <span aria-hidden="true">→</span></a>
+        </div>
+        <p class="meta"><span data-version>Latest release</span> · Linux x86_64</p>
+        <p class="tip keyboard-only"><kbd>f</kbd> Click links on this page from the keyboard, as in Fly.</p>
+      </div>
+
+      <figure class="specimen" aria-label="Fly's features, annotated on a drawing of a fly">
+        <div class="specimen-art">
+          <img class="art-chasis" src="assets/img/memory-chasis.webp" width="980" height="1030" alt="Line drawing of a house fly seen from above, with red compound eyes.">
+          <img class="art-papel" src="assets/img/memory-papel.webp" width="980" height="1030" alt="" loading="lazy">
+        </div>
+        <ol class="specimen-notes">
+          <li class="note">
+            <span class="feature">Ad and tracker blocking</span>
+            <span class="data">uBlock Origin Lite included</span>
+          </li>
+          <li class="note">
+            <span class="feature">Workspaces</span>
+            <span class="data">each one is a separate Chromium profile</span>
+          </li>
+          <li class="note">
+            <span class="feature">Tab suspension</span>
+            <span class="data">background tabs pause and resume without reloading</span>
+          </li>
+          <li class="note">
+            <span class="feature">Split view</span>
+            <span class="data">two pages side by side</span>
+          </li>
+          <li class="note">
+            <span class="feature">No telemetry</span>
+            <span class="data">your data stays on your computer</span>
+          </li>
+        </ol>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="interface" aria-labelledby="interface-title">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 id="interface-title">Interface</h2>
+        <p>Tabs are listed in a vertical sidebar. A status bar at the bottom shows the keyboard mode, zoom, workspace and clock. The command palette, workspaces, history and preferences open as panels over the page.</p>
+      </header>
+
+      <div class="plates">
+        <div class="plate-tabs" role="tablist" aria-label="Fly screens" aria-orientation="vertical">
+          <button role="tab" id="tab-newtab" aria-controls="plate" aria-selected="true" data-src="assets/screens/new-tab.webp" data-name="New tab" data-keys="Ctrl + T" data-alt="Fly's new tab: the fly drawing, a search entry and a bookmarks shortcut, with the tab sidebar on the left and the status bar at the bottom.">
+            <span class="tab-title">New tab</span>
+            <span class="tab-sub">Search and bookmarks</span>
+            <kbd>Ctrl T</kbd>
+          </button>
+          <button role="tab" id="tab-commands" aria-controls="plate" aria-selected="false" tabindex="-1" data-src="assets/screens/command-centre.webp" data-name="Command Centre" data-keys="Ctrl + P" data-alt="The Command Centre: a searchable list of browser commands, each with its shortcut and NORMAL mode key.">
+            <span class="tab-title">Commands</span>
+            <span class="tab-sub">Every action by name</span>
+            <kbd>Ctrl P</kbd>
+          </button>
+          <button role="tab" id="tab-workspaces" aria-controls="plate" aria-selected="false" tabindex="-1" data-src="assets/screens/workspace-dashboard.webp" data-name="Workspaces" data-keys="Ctrl + Shift + W" data-alt="The workspace dashboard listing workspaces and their tabs, with rename and move actions.">
+            <span class="tab-title">Workspaces</span>
+            <span class="tab-sub">One profile per window</span>
+            <kbd>Ctrl Shift W</kbd>
+          </button>
+          <button role="tab" id="tab-history" aria-controls="plate" aria-selected="false" tabindex="-1" data-src="assets/screens/history.webp" data-name="History" data-keys="Ctrl + Shift + H" data-alt="The history panel: a searchable list of visited pages with their addresses.">
+            <span class="tab-title">History</span>
+            <span class="tab-sub">Search, reopen, clear</span>
+            <kbd>Ctrl Shift H</kbd>
+          </button>
+          <button role="tab" id="tab-preferences" aria-controls="plate" aria-selected="false" tabindex="-1" data-src="assets/screens/preferences-1.webp" data-name="Preferences" data-keys="Ctrl + ," data-alt="Preferences open on Performance: background tab suspension, page loading and engine settings.">
+            <span class="tab-title">Preferences</span>
+            <span class="tab-sub">Every setting, searchable</span>
+            <kbd>Ctrl ,</kbd>
+          </button>
+        </div>
+
+        <figure class="plate" id="plate" role="tabpanel" aria-labelledby="tab-newtab">
+          <div class="plate-frame">
+            <img src="assets/screens/new-tab.webp" width="1440" height="900" alt="Fly's new tab: the fly drawing, a search entry and a bookmarks shortcut, with the tab sidebar on the left and the status bar at the bottom.">
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="keyboard" aria-labelledby="keyboard-title">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 id="keyboard-title">Keyboard navigation</h2>
+        <p>Every browser function has a shortcut. Outside text fields, single keys also work on the page: <kbd>j</kbd> <kbd>k</kbd> to scroll, <kbd>f</kbd> to click links. The mouse works as usual.</p>
+      </header>
+
+      <div class="keyboard-grid">
+
+        <table class="board">
+          <caption class="sr-only">Default shortcuts of a new profile</caption>
+          <thead>
+            <tr><th scope="col">Shortcut</th><th scope="col">Page key</th><th scope="col">Action</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><kbd>Ctrl</kbd> <kbd>L</kbd></td><td><kbd>o</kbd></td><td>Floating address bar</td></tr>
+            <tr><td><kbd>Alt</kbd> <kbd>F</kbd></td><td><kbd>f</kbd></td><td>Link hints</td></tr>
+            <tr><td><kbd>Ctrl</kbd> <kbd>P</kbd></td><td><span class="none" aria-label="none">–</span></td><td>Command palette</td></tr>
+            <tr><td><kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>S</kbd></td><td><span class="none" aria-label="none">–</span></td><td>Split view</td></tr>
+            <tr><td><kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>W</kbd></td><td><kbd>w</kbd></td><td>Workspace dashboard</td></tr>
+            <tr><td><kbd>Alt</kbd> <kbd>S</kbd></td><td><kbd>s</kbd></td><td>Sidebar focus</td></tr>
+            <tr><td><kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>H</kbd></td><td><span class="none" aria-label="none">–</span></td><td>History</td></tr>
+            <tr><td><kbd>Ctrl</kbd> <kbd>,</kbd></td><td><span class="none" aria-label="none">–</span></td><td>Preferences and key editor</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="aside">Every binding can be changed in <b>Preferences → Keyboard</b>. <a class="text-link" href="https://github.com/Arzuparreta/fly-browser/blob/main/docs/reference/keybinds.md">Full keyboard reference <span aria-hidden="true">→</span></a></p>
+    </div>
+  </section>
+
+  <section class="section" id="install" aria-labelledby="install-title">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 id="install-title">Installation</h2>
+        <p>The installer detects your package manager and installs the DEB, RPM or pacman package. It verifies the package signature before asking for your password.</p>
+      </header>
+
+      <div class="command brackets" data-copy-root>
+        <pre><code><span class="prompt" aria-hidden="true">$ </span>curl -fsSL https://arzuparreta.github.io/fly-browser.github.io/packages/fly-install -o fly-install
+<span class="prompt" aria-hidden="true">$ </span>bash fly-install install --package</code></pre>
+        <button class="copy" type="button" data-copy="curl -fsSL https://arzuparreta.github.io/fly-browser.github.io/packages/fly-install -o fly-install&#10;bash fly-install install --package">Copy</button>
+      </div>
+
+      <div class="install-grid">
+        <div class="install-cell">
+          <h3>Updates</h3>
+          <table class="updates">
+            <tbody>
+              <tr><th scope="row">Debian, Ubuntu</th><td><code>sudo apt update &amp;&amp; sudo apt upgrade</code></td></tr>
+              <tr><th scope="row">Fedora</th><td><code>sudo dnf upgrade</code></td></tr>
+              <tr><th scope="row">openSUSE</th><td><code>sudo zypper dup</code></td></tr>
+              <tr><th scope="row">Arch</th><td><code>sudo pacman -Syu</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="install-cell">
+          <h3>Install without root</h3>
+          <p><code>bash fly-install install --native</code> installs Fly in <code>~/.local/share/fly-browser</code>. Updates are installed from Fly's Preferences.</p>
+        </div>
+        <div class="install-cell">
+          <h3>Signing key</h3>
+          <p class="fingerprint" aria-label="Signing key fingerprint ED5C430691764316F98C1A8623274B1DFAB01ABE"><span>ED5C 4306 9176 4316 F98C</span> <span>1A86 2327 4B1D FAB0 1ABE</span></p>
+          <p><a class="text-link" href="packages/release-key.asc">Public key</a> · <a class="text-link" href="packages/">Package repository</a></p>
+        </div>
+      </div>
+
+      <p class="downloads">
+        <span class="downloads-label">Or download a package</span>
+        <a href="https://github.com/Arzuparreta/fly-browser/releases/latest" data-asset="fly-browser-bin_{v}_amd64.deb">.deb</a>
+        <a href="https://github.com/Arzuparreta/fly-browser/releases/latest" data-asset="fly-browser-bin-{v}-1.x86_64.rpm">.rpm</a>
+        <a href="https://github.com/Arzuparreta/fly-browser/releases/latest" data-asset="fly-browser-bin-{v}-1-x86_64.pkg.tar.zst">.pkg.tar.zst</a>
+        <a href="https://github.com/Arzuparreta/fly-browser/releases/latest" data-asset="Fly-{v}-native-linux-x64.tar.gz">.tar.gz</a>
+        <span class="downloads-meta"><span data-version>latest</span><span data-size></span></span>
+      </p>
+      <p class="aside">Linux x86_64 with glibc. Immutable systems such as Silverblue and NixOS are untested. <a class="text-link" href="https://github.com/Arzuparreta/fly-browser/blob/main/docs/guide/installation.md">Installation guide <span aria-hidden="true">→</span></a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <img src="assets/img/favicon-32.png" width="32" height="32" alt="">
+      <p>Fly is the independent continuation of Mise.<br>Licensed under GPL-3.0-or-later.</p>
+    </div>
+    <nav class="foot-nav" aria-label="Project">
+      <a href="https://github.com/Arzuparreta/fly-browser">Source</a>
+      <a href="https://github.com/Arzuparreta/fly-browser/releases">Releases</a>
+      <a href="https://github.com/Arzuparreta/fly-browser/issues">Issues</a>
+      <a href="https://github.com/Arzuparreta/fly-browser/blob/main/PRIVACY.md">Privacy</a>
+      <a href="https://github.com/Arzuparreta/fly-browser/blob/main/SECURITY.md">Security</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
