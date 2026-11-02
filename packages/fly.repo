@@ -1,0 +1,10 @@
+[fly-browser]
+name=Fly Browser
+baseurl=https://arzuparreta.github.io/fly-browser.github.io/packages/rpm/
+enabled=1
+autorefresh=1
+metadata_expire=1h
+gpgcheck=1
+repo_gpgcheck=1
+includepkgs=fly-browser-bin
+gpgkey=file:///usr/share/fly-browser/release-key.asc

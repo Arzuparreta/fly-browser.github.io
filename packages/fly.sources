@@ -1,0 +1,5 @@
+Types: deb
+URIs: https://github.com/Arzuparreta/fly-browser/releases/download/linux-repository/
+Suites: ./
+Architectures: amd64
+Signed-By: /etc/apt/keyrings/fly-browser.gpg
