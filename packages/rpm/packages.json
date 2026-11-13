@@ -1,11 +1,11 @@
 {
-  "version": "0.43.1",
+  "version": "0.43.2",
   "packages": [
     {
-      "name": "fly-browser-bin-0.43.1-1.x86_64.rpm",
-      "url": "https://github.com/Arzuparreta/fly-browser/releases/download/linux-repository/fly-browser-bin-0.43.1-1.x86_64.rpm",
-      "sha256": "1ea5ecd95c43a1fd04ad050ae16adfc8cc81bb74f05fd868dba9e3009e483b3e",
-      "size": 216364233
+      "name": "fly-browser-bin-0.43.2-1.x86_64.rpm",
+      "url": "https://github.com/Arzuparreta/fly-browser/releases/download/linux-repository/fly-browser-bin-0.43.2-1.x86_64.rpm",
+      "sha256": "7b7ecdc6a3892629a1400a43848b606eb2d61e26ae80a2483205050b3b113bb5",
+      "size": 216389270
     }
   ]
 }
